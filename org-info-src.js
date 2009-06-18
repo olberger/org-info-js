@@ -341,7 +341,7 @@ var org_html_manager = {
   ALL_VIEW: 2,                 // plain view show all
   INFO_VIEW: 3,                // We're in info view mode
   SLIDE_VIEW: 4,               // Slidemode.
-  VIEW: this.OVER_VIEW,        // Default view mode (s. setup())
+  VIEW: this.CONTENT_VIEW,     // Default view mode (s. setup())
   LOCAL_TOC: false,            // Create sub indexes (s. setup()): "0", "1" "above", "below" (==1, default)
   LINK_HOME: 0,                // Link to this.LINK_HOME?
   LINK_UP: 0,                  // Link to this.LINK_UP?
@@ -349,7 +349,6 @@ var org_html_manager = {
   RUN_MAX: 1200,               // Max attempts to scan (results in ~2 minutes)
   RUN_INTERVAL: 100,           // Interval of scans in milliseconds.
   DEBUG: 0,                    // Gather and show debugging info?
-  WINDOW_BORDER: false,        // Draw a border aroung info window
   HIDE_TOC: false,             // Hide the table of contents.
   TOC_DEPTH: 0,                // Level to cut the table of contents. No cutting if 0.
   STARTUP_MESSAGE: 0,          // Show info at startup?
@@ -363,6 +362,7 @@ var org_html_manager = {
   INNER_TITLE: false,           // The cloned title in sec-1.
   LOAD_CHECK: null,            // Saves the setTimeout()'s value
   WINDOW: null,                // A div to display info view mode
+  WINDOW_BORDER: false,        // Draw a border aroung info window
   SECS: new Array(),           // The OrgNode tree
   REGEX: /(#)(.*$)/,           // identify a section link in toc
   UNTAG_REGEX: /<[^>]+>/i,     // Remove HTML tags
@@ -379,7 +379,6 @@ var org_html_manager = {
   DEBUG_FATAL: 1,              // Fatale Fehler anzeigen.
   DEBUG_BUILD: 1 << 5,
   DEBUG_TREE: 1 << 10,
-  WINDOW_BORDER: false,        // Draw a border aroung info window
   // Commands:
   CONSOLE: null,               // The div containing the minibuffer.
   CONSOLE_INPUT: null,
@@ -440,7 +439,6 @@ var org_html_manager = {
           case 'VIEW':
           case 'HIDE_TOC':
           case 'LOCAL_TOC':
-          case 'VIEW':
           case 'OCCUR':
             this.set(k, decodeURIComponent(v));
             break;
