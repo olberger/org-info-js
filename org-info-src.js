@@ -348,7 +348,6 @@ var org_html_manager = {
   LINKS: "",                   // Prepare the links for later use (see setup),
   RUN_MAX: 1200,               // Max attempts to scan (results in ~2 minutes)
   RUN_INTERVAL: 100,           // Interval of scans in milliseconds.
-  DEBUG: 0,                    // Gather and show debugging info?
   HIDE_TOC: false,             // Hide the table of contents.
   TOC_DEPTH: 0,                // Level to cut the table of contents. No cutting if 0.
   STARTUP_MESSAGE: 0,          // Show info at startup?
@@ -474,7 +473,6 @@ var org_html_manager = {
     if(str) {
       while(str.match(this.UNTAG_REGEX)) {
         str = str.substr(0, str.indexOf('<')) + str.substr(str.indexOf('>') + 1);
-        if(this.DEBUG > 5) this.debug += str + "\n";
       }}
     return str;
   },
@@ -505,23 +503,22 @@ var org_html_manager = {
       }
     }
 
+    this.START_SECTION = 0;
     if(scanned_all) {
-      if(-1 != this.BASE_URL.indexOf('?'))
+      if("" != location.search)
         this.BASE_URL = this.BASE_URL.substring(0, this.BASE_URL.indexOf('?'));
-      var start_section_found = 0;
-      if(-1 != this.BASE_URL.indexOf('#')) {
-        this.START_SECTION = this.BASE_URL.substring(this.BASE_URL.indexOf('#'));
+      if("" != location.hash) {
+        var start_section = location.hash;
         this.BASE_URL = this.BASE_URL.substring(0, this.BASE_URL.indexOf('#'));
-        // change START_SECTION to number:
+        // Search for the start section:
         for(var i=0;i<this.SECS.length;++i) {
-          if(this.SECS[i].isTargetFor[this.START_SECTION]) {
+          if(this.SECS[i].isTargetFor[start_section]) {
             this.START_SECTION = i;
-            start_section_found = 1;
             break;
           }
         }
       }
-      if(! start_section_found) this.START_SECTION = 0;
+
       this.convertLinks(); // adjust internal links. BASE_URL has to be stripped.
 
       var pa=document.getElementById('postamble');
@@ -538,24 +535,20 @@ var org_html_manager = {
       }
       // END OF temporary FIX.
 
-      if(this.VIEW == this.INFO_VIEW) {
+      if(this.VIEW == this.INFO_VIEW)
         this.infoView(this.START_SECTION);
-      }
-      else if(this.VIEW == this.SLIDE_VIEW) {
+      else if(this.VIEW == this.SLIDE_VIEW)
         this.slideView(this.START_SECTION);
-      }
       else {
         var v = this.VIEW; // will be changed in this.plainView()!
         this.plainView(this.START_SECTION);
         this.ROOT.dirty = true;
         this.ROOT_STATE = OrgNode.STATE_UNFOLDED;
         this.toggleGlobaly();
-        if(v > this.PLAIN_VIEW) {
+        if(v > this.PLAIN_VIEW)
           this.toggleGlobaly();
-        }
-        if (v == this.ALL_VIEW) {
+        if (v == this.ALL_VIEW)
           this.toggleGlobaly();
-        }
       }
       if(this.START_SECTION) this.showSection(this.START_SECTION);
       else window.scrollTo(0, 0);
@@ -603,7 +596,6 @@ var org_html_manager = {
       this.evalReadCommand();
     }
 
-    if(0 != this.DEBUG && this.debug.length) alert(this.debug);
     if(this.STARTUP_MESSAGE) {
       this.warn("This page uses org-info.js. Press '?' for more information.", true);
     }
@@ -737,7 +729,6 @@ var org_html_manager = {
     if(ul.hasChildNodes() && ! ul.scanned_for_org) {
       for(var i=0; i<ul.childNodes.length; ++i) {
         if(false == this.liToOutlines(ul.childNodes[i])) {
-          //this.debug += "ulToOutlines: stopped. "+this.SECS.length + " Childnodes scanned.";
           return false;
         }
       }
@@ -756,10 +747,8 @@ var org_html_manager = {
         var c = li.childNodes[i];
         switch (c.nodeName) {
         case "A":
-          //this.debug += c.href + "\n";
           var newHref = this.mkNodeFromHref(c.href);
           if(false == newHref) {
-            this.debug += "liToOutlines: stopped\n";
             return false;
           }
           else {
@@ -803,42 +792,39 @@ var org_html_manager = {
   {
     if(s.match(this.REGEX)) {
       var matches = this.REGEX.exec(s);
-      this.debug += matches[1]+" + "+matches[2]+"\n";
       var id = matches[2];
-      var heading = document.getElementById(id);
+      var h = document.getElementById(id);
       // This heading could be null, if the document is not yet entirely loaded.
       // So we stop scanning and set the timeout func in caller.
       // We could even count the <ul> and <li> elements above to speed up the next
       // scan.
-      if(null == heading) {
-        this.debug += ("heading is null. Scanning stopped.\n");
-        return(false);
-      }
-      var div = heading.parentNode;
+      if(null == h) return(false);
+
+      var div = h.parentNode;
       var sec = this.SECS.length;
       var depth = div.className.substr(8);
-      heading.onclick = function() {org_html_manager.fold("" + sec);};
-      heading.style.cursor = "pointer";
+      h.onclick = function() {org_html_manager.fold("" + sec);};
+      h.style.cursor = "pointer";
       if(this.MOUSE_HINT) {
-        heading.onmouseover = function() {org_html_manager.highlight_headline("" + sec);};
-        heading.onmouseout = function() {org_html_manager.unhighlight_headline("" + sec);};
+        h.onmouseover = function() {org_html_manager.highlight_headline("" + sec);};
+        h.onmouseout = function() {org_html_manager.unhighlight_headline("" + sec);};
       }
       var link = 'javascript:org_html_manager.navigateTo(' + sec + ')';
       // Is this wrong (??):
       if(depth > this.NODE.depth) {
-        this.NODE = new OrgNode ( div, heading, link, depth, this.NODE, id);
+        this.NODE = new OrgNode ( div, h, link, depth, this.NODE, id);
       }
       else if (depth == 2) {
-        this.NODE = new OrgNode ( div, heading, link, depth, this.ROOT, id);
+        this.NODE = new OrgNode ( div, h, link, depth, this.ROOT, id);
       }
       else {
         var p = this.NODE;
         while(p.depth > depth) p = p.parent;
-        this.NODE = new OrgNode ( div, heading, link, depth, p.parent, id);
+        this.NODE = new OrgNode ( div, h, link, depth, p.parent, id);
       }
       this.SECS.push(this.NODE);
       // Prepare the tags-index:
-      var spans = heading.getElementsByTagName("span");
+      var spans = h.getElementsByTagName("span");
       if(spans) {
         for(var i = 0; i < spans.length; ++i) {
           if(spans[i].className == "tag") {
@@ -1271,9 +1257,9 @@ var org_html_manager = {
     if     (this.READING)   { this.endRead(); this.hideConsole(); }
     else if(this.MESSAGING) { this.removeWarning(); }
     if(this.VIEW == this.SLIDE_VIEW) this.adjustSlide(sec);
-    if ('?/toc/?' != sec) document.location.replace(this.BASE_URL + "#"+this.SECS[sec]['base_id']);
     this.pushHistory(sec, this.NODE.idx);
     this.showSection(sec);
+    if ('?/toc/?' != sec) document.location.replace(this.BASE_URL + this.getDefaultTarget());
   },
 
   /**
