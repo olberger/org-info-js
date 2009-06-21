@@ -365,6 +365,7 @@ var org_html_manager = {
   WINDOW_BORDER: false,        // Draw a border aroung info window
   SECS: new Array(),           // The OrgNode tree
   REGEX: /(#)(.*$)/,           // identify a section link in toc
+  SIDREX: /(#)(sec-\d[.\d]*$)/, // identify a section ID
   UNTAG_REGEX: /<[^>]+>/i,     // Remove HTML tags
   TRIMMER: /^(\s*)([^\s].*)(\s*)$/, // Trim
   FNREF_REGEX: /(fnr\.*)/,     // Footnote ref
@@ -374,11 +375,6 @@ var org_html_manager = {
   HIST_INDEX: 0,
   SKIP_HISTORY: false,         // popHistory() set's this to true.
   FIXED_TOC: false,            // Leave toc alone if position=[fixed|absolute]?
-  // Debugging:
-  debug: "",                   // Will be shown after every scan, if not empty
-  DEBUG_FATAL: 1,              // Fatale Fehler anzeigen.
-  DEBUG_BUILD: 1 << 5,
-  DEBUG_TREE: 1 << 10,
   // Commands:
   CONSOLE: null,               // The div containing the minibuffer.
   CONSOLE_INPUT: null,
