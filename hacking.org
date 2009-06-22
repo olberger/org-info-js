@@ -32,45 +32,45 @@
    |--------+-----------------------+--------+-------------+------------+-------------|
    |    700 | this                  |      4 | t           |          1 |        2100 |
    |    111 | OrgNode               |      7 | O           |          1 |         666 |
-   |     19 | BASE_URL              |      8 | BU          |          2 |         114 |
+   |     19 | BASE\_URL             |      8 | BU          |          2 |         114 |
    |     14 | BODY                  |      4 | B           |          1 |          42 |
-   |     37 | CONSOLE_INPUT         |     13 | CI          |          2 |         407 |
-   |      7 | CONSOLE_LABEL         |     13 | CL          |          2 |          77 |
-   |      5 | CONSOLE_OFFSET        |     14 | CO          |          2 |          60 |
+   |     37 | CONSOLE\_INPUT        |     13 | CI          |          2 |         407 |
+   |      7 | CONSOLE\_LABEL        |     13 | CL          |          2 |          77 |
+   |      5 | CONSOLE\_OFFSET       |     14 | CO          |          2 |          60 |
    |     21 | CONSOLE               |      7 | C           |          1 |         126 |
-   |     18 | HIST_INDEX            |     10 | HI          |          2 |         144 |
+   |     18 | HIST\_INDEX           |     10 | HI          |          2 |         144 |
    |     17 | HISTORY               |      7 | H           |          1 |         102 |
-   |      6 | LAST_VIEW_MODE        |     14 | LVM         |          3 |          66 |
-   |      3 | MESSAGING_INPLACE     |     17 | MgI         |          3 |          42 |
-   |      2 | MESSAGING_TOP         |     13 | MgT         |          3 |          20 |
+   |      6 | LAST\_VIEW\_MODE      |     14 | LVM         |          3 |          66 |
+   |      3 | MESSAGING\_INPLACE    |     17 | MgI         |          3 |          42 |
+   |      2 | MESSAGING\_TOP        |     13 | MgT         |          3 |          20 |
    |     14 | MESSAGING             |      9 | Mg          |          2 |          98 |
    |     88 | NODE                  |      4 | N           |          1 |         264 |
    |      8 | POSTAMBLE             |      9 | P           |          1 |          64 |
-   |     23 | READ_COMMAND          |     12 | RC          |          2 |         230 |
+   |     23 | READ\_COMMAND         |     12 | RC          |          2 |         230 |
    |     10 | READING               |      7 | Rg          |          2 |          50 |
    |      7 | HELPING               |      7 | Hg          |          2 |          35 |
    |     43 | ROOT                  |      4 | R           |          1 |         129 |
-   |      6 | SEARCH_HIGHLIGHT_ON   |     18 | SHO         |          3 |          90 |
+   |      6 | SEARCH\_HIGHLIGHT\_ON |     18 | SHO         |          3 |          90 |
    |    104 | SECS                  |      4 | S           |          1 |         312 |
    |     11 | SEARCH                |      6 | SC          |          1 |          55 |
-   |      6 | SORTED_TAGS           |     11 | ST          |          2 |          54 |
-   |     17 | _REGEX                |      6 | X           |          1 |          85 |
+   |      6 | SORTED\_TAGS          |     11 | ST          |          2 |          54 |
+   |     17 | \_REGEX               |      6 | X           |          1 |          85 |
    |     18 | WINDOW                |      6 | W           |          1 |          90 |
-   |     23 | READ_COMMAND          |     12 | RC          |          2 |         230 |
-   |      3 | _PLAIN_URL_LINK       |     16 | _P          |          2 |          42 |
-   |      3 | _ORG_LINK             |      9 | _O          |          2 |          21 |
-   |      3 | _HTML_LINK            |     10 | _H          |          2 |          24 |
-   |     14 | INNER_TITLE           |     11 | IT          |          2 |         126 |
+   |     23 | READ\_COMMAND         |     12 | RC          |          2 |         230 |
+   |      3 | \_PLAIN\_URL\_LINK    |     16 | \_P         |          2 |          42 |
+   |      3 | \_ORG\_LINK           |      9 | \_O         |          2 |          21 |
+   |      3 | \_HTML\_LINK          |     10 | \_H         |          2 |          24 |
+   |     14 | INNER\_TITLE          |     11 | IT          |          2 |         126 |
    |      9 | TITLE                 |      5 | T           |          1 |          36 |
-   |      9 | .STATE_FOLDED         |     13 | .SF         |          3 |          90 |
-   |     15 | .STATE_UNFOLDED       |     15 | .SU         |          3 |         180 |
-   |      6 | .STATE_HEADLINES      |     16 | .SH         |          3 |          78 |
+   |      9 | .STATE\_FOLDED        |     13 | .SF         |          3 |          90 |
+   |     15 | .STATE\_UNFOLDED      |     15 | .SU         |          3 |         180 |
+   |      6 | .STATE\_HEADLINES     |     16 | .SH         |          3 |          78 |
    |     67 | .DIV                  |      4 | .D          |          2 |         134 |
    |     27 | .FOLDER               |      7 | .F          |          2 |         135 |
-   |      5 | .BASE_ID              |      8 | .I          |          2 |          30 |
+   |      5 | .BASE\_ID             |      8 | .I          |          2 |          30 |
    |     42 | .IDX                  |      4 | .J          |          2 |          84 |
    |     35 | .HEADING              |      8 | .H          |          2 |         210 |
-   |      5 | .HAS_HIGHLIGHT        |     14 | .HH         |          3 |          55 |
+   |      5 | .HAS\_HIGHLIGHT       |     14 | .HH         |          3 |          55 |
    |     19 | .PARENT               |      7 | .P          |          2 |          95 |
    |      8 | .DIRTY                |      6 | .DRT        |          4 |          16 |
    |     31 | .CHILDREN             |      9 | .CH         |          3 |         186 |
@@ -110,6 +110,8 @@
    |      ^ |                       |        |             |            |  totalBytes |
 	#+TBLFM: $6=($3-$5)*$1::$totalBytes=vsum(@-II$6..@-I$6)
 
+  Here are the differences between the last commit before 2009-06-21, and
+  directly after that.
 
   Sizes befor compression:
   : -rw-r--r-- 1 sebastian sebastian 75736 19. Jun 17:52 org-info-src.js
