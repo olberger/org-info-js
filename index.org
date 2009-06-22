@@ -140,11 +140,13 @@
 
 ** Searching
 
-   + *Full text-search with highlighting* ::
-     Search forward, backwards, repeated search... Simple regular expressions
-     are supported. Try to search for =a[e-h].*n= for example. All searches are
-     case insensitive. Grouping is not supported. We couldn't search for round
-     brackets otherwise.
+   + *Full text-search with highlighting* :: Search forward, backwards, repeated
+     search... (experimental). Simple regular expressions are supported. Try to
+     search for =a[e-h].*n= for example. All searches are case
+     insensitive. Grouping is not supported. We couldn't search for round
+     brackets otherwise. Supported are wildcards (e.g. =.*=) and ranges
+     (e.g. =[a-g]=). Sometimes only one match is found between to HTML tags. The
+     longer the expression, the better the matches.
    + *Occur mode* ::
      As experimental as the text-search, but I love this one. You may link to a
      file using this script like this: =index.html?OCCUR=java=. Use regular
