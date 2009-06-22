@@ -1,18 +1,17 @@
 body
 {
-  width:60em;
+  width:64em;
   margin:0px auto auto auto;
   padding:3em;
   line-height:1.4em;
   color:#333333;
   font-size:10pt;
-  font-family:"DejaVu Sans",Verdana,Arial,sans-serif; /*"Bitstream Vera Serif", serif;*/
+  font-family:Verdana,Arial,sans-serif;
 }
-
 
 h1,h2
 {
-  font-family:"DejaVu Sans",Verdana,Arial,sans-serif; /*"DejaVu Serif","Bitstream Vera Serif", serif;*/
+  font-family:Verdana,Arial,sans-serif;
   font-weight:bold;
   color:#104d8c;
   text-align:left;
@@ -20,7 +19,7 @@ h1,h2
 
 h3,h4,h5,h6
 {
-  font-family:"DejaVu Sans",Verdana,Arial,sans-serif; /*"DejaVu Serif","Bitstream Vera Serif", serif;*/
+  font-family:Verdana,Arial,sans-serif;
   font-weight:bold;
   color:#104d8c;
   text-align:left;
