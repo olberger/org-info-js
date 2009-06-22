@@ -9,7 +9,9 @@
 #+INFOJS_OPT: home:http://orgmode.org buttons:nil
 
 
-* 2009-06-21
+* 2009-06-22
+
+  * *NOTE: now GPL 3*
 
   * FIX: go to previous sibling, even if it's the first one.
 
@@ -31,6 +33,9 @@
 
   * Added =hacking.org= to explain what happens here a bit.
 
+  * Reworked the Docs. Oha, I wonder how noone complained about that...
+
+  * FIX html tags in local toc.
 
 
 * 2009-06-17

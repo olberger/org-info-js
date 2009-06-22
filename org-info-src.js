@@ -1,6 +1,6 @@
 /**
  * @file
- *       org-info.js, v.0.1.1.5
+ *       org-info.js, v.0.1.1.7
  *
  * @author Sebastian Rose, Hannover, Germany - sebastian_rose at gmx dot de
  *
@@ -920,7 +920,7 @@ var org_html_manager = {
         for(var k=0; k < this.SECS[i].CHILDREN.length; ++k) {
           html += '<li><a href="'
             +this.SECS[i].CHILDREN[k].L+'">'
-            +this.removeOrgTags(this.SECS[i].CHILDREN[k].HEADING.innerHTML)+'</a></li>';
+            +this.removeTags(this.removeOrgTags(this.SECS[i].CHILDREN[k].HEADING.innerHTML))+'</a></li>';
         }
         html += '</ul>';
         navi2.innerHTML = html;
@@ -1030,7 +1030,7 @@ var org_html_manager = {
             else t.WINDOW.innerHTML = t.NODE.NAV + t.NODE.DIV.innerHTML;
             t.NODE.hide();
             OrgNode.hideElement(document.body);
-            if ('?/toc/?' != sec) document.location.replace(t.BASE_URL + t.getDefaultTarget());
+            if ('?/toc/?' != sec) window.location.replace(t.BASE_URL + t.getDefaultTarget());
             window.scrollTo(0, 0);
             OrgNode.showElement(document.body);
             document.body.focus();
@@ -1044,7 +1044,7 @@ var org_html_manager = {
               t.NODE.DIV.scrollIntoView(true);
             else {
               OrgNode.hideElement(document.body);
-              document.location.replace(t.BASE_URL + t.getDefaultTarget());
+              window.location.replace(t.BASE_URL + t.getDefaultTarget());
               window.scrollTo(0, 0);
               OrgNode.showElement(document.body);
               document.body.focus();

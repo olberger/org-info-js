@@ -1,6 +1,7 @@
 body
 {
   width:60em;
+  margin:0px auto auto auto;
   padding:3em;
   line-height:1.4em;
   color:#333333;
@@ -8,10 +9,6 @@ body
   font-family:"DejaVu Sans",Verdana,Arial,sans-serif; /*"Bitstream Vera Serif", serif;*/
 }
 
-code, pre
-{
-  font-family:"DejaVu Sans Mono","Bitstream Vera Sans Mono",mono-space;
-}
 
 h1,h2
 {
@@ -159,8 +156,16 @@ pre, code.pre
   display:block;
   background-color:#eeeeee;
   border:1px solid #cccccc;
+  font-family:"Bitstream Vera Sans mono",Courier,monospace;
+  font-size:10pt;
 }
 
+code
+{
+  font-family:"Bitstream Vera Sans mono",Courier,monospace;
+  font-size:10pt;
+  line-height:1.6em;
+}
 
 li pre, li code.pre
 {
@@ -269,6 +274,110 @@ div#postamble
   text-align:right;
   white-space:nowrap;
 }
+
+
+/* Styles for htmlize.el */
+
+.comment {
+  /* font-lock-comment-face */
+  color: #b22222;
+  font-style: italic;
+  font-family:"Bitstream Vera Sans mono",Courier,monospace;
+  font-size:10pt;
+  line-height:1.6em;
+}
+.comment-delimiter {
+  /* font-lock-comment-delimiter-face */
+  color: #b22222;
+  font-style: italic;
+  font-family:"Bitstream Vera Sans mono",Courier,monospace;
+  font-size:10pt;
+  line-height:1.6em;
+}
+.constant {
+  /* font-lock-constant-face */
+  color: #ff4500;
+  font-family:"Bitstream Vera Sans mono",Courier,monospace;
+  font-size:10pt;
+  line-height:1.6em;
+}
+.default {
+  /* default */
+  color: #000000;
+  font-family:"Bitstream Vera Sans mono",Courier,monospace;
+  font-size:10pt;
+  line-height:1.6em;
+}
+.function-name {
+  color:#0000ff;
+  font-family:"Bitstream Vera Sans mono",Courier,monospace;
+  font-size:10pt;
+  line-height:1.6em;
+}
+.builtin {
+  font-family:"Bitstream Vera Sans mono",Courier,monospace;
+  font-size:10pt;
+  line-height:1.6em;
+  color: #0000ff;
+}
+.html-tag {
+  /* html-tag-face */
+  color: #0000ff;
+  font-family:"Bitstream Vera Sans mono",Courier,monospace;
+  font-size:10pt;
+  line-height:1.6em;
+}
+.keyword {
+  /* font-lock-keyword-face */
+  color: #a52a2a;
+  font-weight: bold;
+  font-family:"Bitstream Vera Sans mono",Courier,monospace;
+  font-size:10pt;
+  line-height:1.6em;
+}
+.string {
+  /* font-lock-string-face */
+  color: #006400;
+  font-family:"Bitstream Vera Sans mono",Courier,monospace;
+  font-size:10pt;
+  line-height:1.6em;
+}
+.type {
+  font-family:"Bitstream Vera Sans mono",Courier,monospace;
+  font-size:10pt;
+  line-height:1.6em;
+}
+.variable-name {
+  /* font-lock-variable-name-face */
+  color: #4d4d4d;
+  font-weight:bold;
+  font-family:"Bitstream Vera Sans mono",Courier,monospace;
+  font-size:10pt;
+  line-height:1.6em;
+}
+.org-meta-line {
+  font-family:"Bitstream Vera Sans mono",Courier,monospace;
+  font-size:10pt;
+  line-height:1.6em;
+  color: #990000;
+}
+.css-selector {
+  font-family:"Bitstream Vera Sans mono",Courier,monospace;
+  font-size:10pt;
+  line-height:1.6em;
+  color: #0000ff;
+}
+.css-property {
+  font-family:"Bitstream Vera Sans mono",Courier,monospace;
+  font-size:10pt;
+  line-height:1.6em;
+  color: #000000;
+  font-weight:bold;
+}
+/* END htmlize.el */
+
+
+
 
 /* Styles for org-info.js */
 
