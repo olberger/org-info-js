@@ -249,7 +249,7 @@ window.setTimeout(function(){org_html_manager.CI.select();},100);}else{j.warn(h+
 window.setTimeout(function(){org_html_manager.CI.select();},100);}else{if("o"==h){j.sR(j.RC_NULL,"Plain-link, occurences of <i>&quot;"+j.OCCUR+"&quot;</i>:",j.BU+"?OCCUR="+j.OCCUR,"C-c to copy, ");
 window.setTimeout(function(){org_html_manager.CI.select();},100);}else{j.warn(h+": No such link type!");
 }}}}}}}}}}}},dT:function(b){if(null==b){b=this.N;}var c="#"+this.N.I;for(var a in b.iTF){if(!a.match(this.SIDX)){c=a;
-break;}}return c;},mSR:function(){var a=this.OCCUR.replace(/>/g,"&gt;").replace(/</g,"&lt;").replace(/=/g,"\\=").replace(/\\/g,"\\\\").replace(/\?/g,"\\?").replace(/\./g,"[^<>]").replace(/\"/g,"&quot;");
+break;}}return c;},mSR:function(){var a=this.OCCUR.replace(/>/g,"&gt;").replace(/</g,"&lt;").replace(/=/g,"\\=").replace(/\\/g,"\\\\").replace(/\?/g,"\\?").replace(/\)/g,"\\)").replace(/\(/g,"\\(").replace(/\./g,"[^<>]").replace(/\"/g,"&quot;");
 this.SCX=new RegExp(">([^<]*)?("+a+")([^>]*)?<","ig");},sINrgNode:function(c){var b=this;
 var a=false;if(null!=b.S[c]){if(b.SCX.test(b.S[c].H.innerHTML)){a=true;b.sSH(b.S[c].H);
 b.S[c].HH=true;b.SHO=true;}if(b.SCX.test(b.S[c].F.innerHTML)){a=true;b.sSH(b.S[c].F);

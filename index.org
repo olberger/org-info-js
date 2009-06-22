@@ -143,7 +143,8 @@
    + *Full text-search with highlighting* ::
      Search forward, backwards, repeated search... Simple regular expressions
      are supported. Try to search for =a[e-h].*n= for example. All searches are
-     case insensitive.
+     case insensitive. Grouping is not supported. We couldn't search for round
+     brackets otherwise.
    + *Occur mode* ::
      As experimental as the text-search, but I love this one. You may link to a
      file using this script like this: =index.html?OCCUR=java=. Use regular

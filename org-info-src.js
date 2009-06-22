@@ -1905,6 +1905,8 @@ var org_html_manager = {
       replace(/=/g, "\\=").
       replace(/\\/g, "\\\\").
       replace(/\?/g, "\\?").
+      replace(/\)/g, "\\)").
+      replace(/\(/g, "\\(").
       replace(/\./g, "[^<>]").
       replace(/\"/g, "&quot;");
     this.SEARCH_REGEX = new RegExp(">([^<]*)?("+tmp+")([^>]*)?<","ig");
