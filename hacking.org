@@ -34,6 +34,7 @@
    |    111 | OrgNode               |      7 | O           |          1 |         666 |
    |     19 | BASE\_URL             |      8 | BU          |          2 |         114 |
    |     14 | BODY                  |      4 | B           |          1 |          42 |
+   |      7 | CLICK_TIMEOUT         |     13 | CTO         |          3 |          21 |
    |     37 | CONSOLE\_INPUT        |     13 | CI          |          2 |         407 |
    |      7 | CONSOLE\_LABEL        |     13 | CL          |          2 |          77 |
    |      5 | CONSOLE\_OFFSET       |     14 | CO          |          2 |          60 |
@@ -53,6 +54,7 @@
    |      6 | SEARCH\_HIGHLIGHT\_ON |     18 | SHO         |          3 |          90 |
    |    104 | SECS                  |      4 | S           |          1 |         312 |
    |     11 | SEARCH                |      6 | SC          |          1 |          55 |
+   |      5 | SECNUM_               |      7 | SN_         |          3 |          21 |
    |      6 | SORTED\_TAGS          |     11 | ST          |          2 |          54 |
    |     17 | \_REGEX               |      6 | X           |          1 |          85 |
    |     18 | WINDOW                |      6 | W           |          1 |          90 |
@@ -77,6 +79,7 @@
    |     20 | .STATE                |      6 | .ST         |          3 |          60 |
    |     11 | .BUTTONS              |      8 | .BS         |          3 |          55 |
    |     11 | .DEPTH                |      6 | .DP         |          3 |          33 |
+   |      5 | adjustSlide           |     11 | aS          |          2 |          45 |
    |      6 | endRead               |      7 | eR          |          2 |          30 |
    |      5 | evalReadCommand       |     15 | eRC         |          3 |          60 |
    |      8 | getDefaultTarget      |     16 | dT          |          2 |         112 |
@@ -85,6 +88,8 @@
    |      4 | makeSearchRegexp      |     16 | mSR         |          3 |          52 |
    |     25 | navigateTo            |     10 | go          |          2 |         200 |
    |      7 | plainView             |      9 | pV          |          2 |          49 |
+   |      2 | pushHistory           |     11 | puH         |          3 |          16 |
+   |      3 | popHistory            |     10 | poH         |          3 |          21 |
    |      5 | infoView              |      8 | iV          |          2 |          30 |
    |      5 | slideView             |      9 | sV          |          2 |          35 |
    |      5 | removeSearchHighlight |     21 | rSH         |          3 |          90 |
@@ -100,13 +105,14 @@
    |      7 | toggleGlobaly         |     13 | tG          |          2 |          77 |
    |      5 | .hideAllChildren      |     16 | .hAC        |          4 |          60 |
    |     28 | .hideElement          |     13 | .hE         |          4 |         252 |
+   |      2 | .unhideElement        |     15 | .uhE        |          4 |          22 |
    |      7 | .isTargetFor          |     12 | .iTF        |          4 |          56 |
    |      7 | .findTargetsIn        |     14 | .fTI        |          4 |          70 |
    |      4 | .showAllChildren      |     16 | .sAC        |          4 |          48 |
    |     18 | .showElement          |     13 | .sE         |          4 |         162 |
    |      8 | .setState             |      9 | .sSt        |          4 |          40 |
    |--------+-----------------------+--------+-------------+------------+-------------|
-   |        |                       |        |             |            |        9797 |
+   |        |                       |        |             |            |        9943 |
    |      ^ |                       |        |             |            |  totalBytes |
 	#+TBLFM: $6=($3-$5)*$1::$totalBytes=vsum(@-II$6..@-I$6)
 
@@ -121,7 +127,6 @@
   : -rw-r--r-- 1 sebastian sebastian 72785 22. Jun 00:03 org-info-src.js
   : -rw-r--r-- 1 sebastian sebastian 65182 22. Jun 00:11 org-info-tmp.js
   : -rw-r--r-- 1 sebastian sebastian 34618 22. Jun 00:11 org-info.js
-
 
 
 * this
