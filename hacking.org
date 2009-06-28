@@ -129,6 +129,7 @@
   Instead of =this.=, a local variable is used where ever possible. Note, the this
   is not possible in recursive functions (e.g. in =OrgNode::fold()=).
 
+
 * Keyboard input
 
   It sound like a paradoxon, but to get single key commands, the documents body
@@ -144,3 +145,12 @@
   there.
 
   All sorts of commands are started in =getKey()= whatsoever.
+
+
+* Versions
+
+  Versions are restricted to for digits. Please keep the the third line of the
+  script in it's very format:
+  : org-info.js, v.N.N.N.N
+  The Makefile will not insert the correct version number below the shortcut
+  table (`?').

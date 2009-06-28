@@ -2,28 +2,33 @@ YUI=~/bin/yuicompressor-2.4.2.jar
 
 MINIFY_OTPIONS=	 --preserve-semi --line-break 80
 
-all: choose
+VERSION = `grep -e '\* Version: *[0-9.]' org-info-src.js | cut -sd ':' -f 2-`
+TMPv = tmp-version.js
+TMPs = tmp-min.js
+
+all: minify
 
 
-minify: org-info-src.js sed.txt
-	sed -f sed.txt org-info-src.js > org-info-tmp.js
-	java -jar $(YUI) $(MINIFY_OTPIONS) org-info-tmp.js > org-info.js
+minify: version sed.txt
+	@if [ -f $(TMPv) ] &&  [ -f $(TMPs) ]; then \
+	  sed -f sed.txt $(TMPv) > $(TMPs); \
+	  java -jar $(YUI) $(MINIFY_OTPIONS) $(TMPs) > org-info.js; \
+	  rm $(TMPv); \
+	  rm $(TMPs); \
+	  echo "org-info.js successfully built."; \
+	else \
+	  echo "Failed to build. $(TMPv) and/or $(TMPs) are missing!"; \
+	fi
 
+version:
+	@if [ -f $(TMPv) ] ||  [ -f $(TMPs) ]; then \
+	  echo "$(TMPv) and/or $(TMPs) exist. Please remove them or adjust the Makefile!"; \
+	else \
+	  sed -e "s/###VERSION###/$(VERSION)/g" org-info-src.js > $(TMPv); \
+	  touch $(TMPs); \
+	fi
 
-org-info.js: org-info-src.js
-	java -jar $(YUI) $(MINIFY_OTPIONS) org-info-src.js > org-info.js
+clean:
+	@rm -f $(TMPv) $(TMPs)
+	@echo "Temporary files removed."
 
-choose:
-	@echo "Possible Makefile targets:"
-	@echo
-	@echo "  make org-info.js"
-	@echo
-	@echo "           Keep the original names for object properties."
-	@echo "           Install java, download a current version of Yahoos"
-	@echo "           yuicompressor and adjust the first line of this"
-	@echo "           Makefile."
-	@echo
-	@echo "  make minify"
-	@echo
-	@echo "           Create a minified version (about 10 Kb smaller)."
-	@echo "           Recommended."
