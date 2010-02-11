@@ -23,10 +23,7 @@
 
   =t= is used to assign =this= to it. Using =with(this)= is a bad idea, since
   yuicompressor will refuse to optimize stuff inside that construct. IE seems to
-  slow down a bit, but I refuse to honor each and every bug in that trashcan (if
-  MS would have to pay for all those extra hours I would - I could imagine to
-  receive free MS licenses too, but that's to ordinary for MS I believe. Extra
-  effort estimate is about 200 hours by now).
+  slow down a bit, but I refuse to honor each and every bug in that trashcan.
 
 
    | Occurs | Orginal Name          | Length | Replacement | New Length | Chars saved |
