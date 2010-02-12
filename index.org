@@ -518,7 +518,6 @@ org_html_manager.setup ();
 /* END STYLES FOR org-info.js */
 #+END_SRC
 
-
 * <<Supported Browsers>>
 
   The functionality of the script is based on =DOM=. This leads to some
