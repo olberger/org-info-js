@@ -29,9 +29,30 @@
          reason.
    + [ ] The tab-indexes are wrong: they traverse the first-level links, then
          the second level links and so on.
+** DONE [TABLE-OF-CONTENTS] somewhere else then at top
+   CLOSED: [2010-02-14 So 11:37]
 
+   ...causes org-info.js to fail scanning.
 
 * TODOs
+
+** DONE Opera scrolls to Sections Heading in info view mode
+   CLOSED: [2010-02-14 So 13:22]
+   :PROPERTIES:
+   :ID:       org:48489210-145c-4e72-ac39-a33fdb40d318
+   :END:
+
+   Opera jumps to headline in info view mode on (re-)load.
+
+** TODO Extend the scanning
+
+   Use the the entries in the TOC. At the end of a branch, try to descend the
+   document tree through the DOM.
+
+   Now, if the TOC depth is 3 on Org-mode's export, folding does not work as
+   expected. I know, this could be changed by users on a per file basis, and
+   that's what =cutToc()= and the =TOC_DEPTH= option are for. But why should the
+   user even notice this fact?
 
 ** TODO Clean and restructure -> View-plugins
 
@@ -126,5 +147,5 @@
    This could be reflected by the script. Always hide drawers, but open them on
    click.
 
-   
+
 * Todo Archive
