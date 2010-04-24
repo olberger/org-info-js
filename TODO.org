@@ -6,16 +6,25 @@
 #+LANGUAGE:   en
 #+CATEGORY:   org-info.js
 #+OPTIONS:    H:3 num:nil toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t TeX:t LaTeX:t skip:nil d:(HIDE) tags:not-in-toc
-#+ARCHIVE: ::* Todo Archive
 
 
 * Bugs
+
+** DONE IDs moved from dots to underscores
+   - State "WAITING"    from "DONE"       [2010-04-23 Fr 13:24] \\
+     Waiting for feedback from list, and more tests with the test file.
+
+   This has to be done to achieve standard compliance as dots are not allowed in
+   IDs.
 
 ** TODO Bug when sections use h1 headlines (??)
 
    Script will not start properly, when sections use h1 headline.
 
    Please test. Could be solved by code cleanup on[[ 2008-03-11 Di ]].
+
+   [2010-04-24 Sa]: It works quite well actually. Minor issue: The title of the
+                    T.O.C. shows up in sec-1 when in info-view-mode.
 
 ** TODO History Bug: less than 50 entries?
 
@@ -29,21 +38,6 @@
          reason.
    + [ ] The tab-indexes are wrong: they traverse the first-level links, then
          the second level links and so on.
-** DONE [TABLE-OF-CONTENTS] somewhere else then at top
-   CLOSED: [2010-02-14 So 11:37]
-
-   ...causes org-info.js to fail scanning.
-
-* TODOs
-
-** DONE Opera scrolls to Sections Heading in info view mode
-   CLOSED: [2010-02-14 So 13:22]
-   :PROPERTIES:
-   :ID:       org:48489210-145c-4e72-ac39-a33fdb40d318
-   :END:
-
-   Opera jumps to headline in info view mode on (re-)load.
-
 ** TODO Extend the scanning
 
    Use the the entries in the TOC. At the end of a branch, try to descend the
@@ -147,5 +141,22 @@
    This could be reflected by the script. Always hide drawers, but open them on
    click.
 
+** TODO Change TOC\_LINK when navigating
+** Archive                                                          :ARCHIVE:
 
-* Todo Archive
+*** DONE Opera scrolls to Sections Heading in info view mode
+    CLOSED: [2010-02-14 So 13:22]
+    :PROPERTIES:
+    :ID:       org:48489210-145c-4e72-ac39-a33fdb40d318
+    :ARCHIVE_TIME: 2010-04-23 Fr 13:20
+    :END:
+
+    Opera jumps to headline in info view mode on (re-)load.
+*** DONE [TABLE-OF-CONTENTS] somewhere else then at top
+    CLOSED: [2010-02-14 So 11:37]
+    :PROPERTIES:
+    :ARCHIVE_TIME: 2010-04-23 Fr 13:21
+    :END:
+
+    ...causes org-info.js to fail scanning.
+
