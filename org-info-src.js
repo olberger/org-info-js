@@ -170,6 +170,16 @@ OrgNode.toggleElement = function (e)
   }
 };
 
+OrgNode.greyBackgroundElement = function (e)
+{
+    e.style.backgroundColor = "#cccccc";
+};
+
+OrgNode.ungreyBackgroundElement = function (e)
+{
+    e.style.backgroundColor = "";
+};
+
 /**
  * Find the OrgNode containing a DOM-text-node.
  * @param dom The text node.
@@ -288,18 +298,29 @@ OrgNode.prototype.fold = function (hide_folder)
         this.STATE = OrgNode.STATE_UNFOLDED;
         OrgNode.showElement(this.FOLDER);
       }
+        if (! hide_folder) {
+            OrgNode.ungreyBackgroundElement(this.DIV);
+        }
     }
     else if(this.STATE == OrgNode.STATE_HEADLINES) {
       // show all content recursive
       this.STATE = OrgNode.STATE_UNFOLDED;
+      OrgNode.ungreyBackgroundElement(this.DIV);
       OrgNode.showElement(this.FOLDER);
-      for(var i=0;i<this.CHILDREN.length;++i) { this.CHILDREN[i].setState(OrgNode.STATE_UNFOLDED); }
+        for(var i=0;i<this.CHILDREN.length;++i) {
+            this.CHILDREN[i].setState(OrgNode.STATE_UNFOLDED);
+            OrgNode.ungreyBackgroundElement(this.CHILDREN[i].DIV);
+        }
     }
     else {
       // collapse. Show only own headline
       this.STATE = OrgNode.STATE_FOLDED;
+      OrgNode.greyBackgroundElement(this.DIV);
       OrgNode.hideElement(this.FOLDER);
-      for(var i=0;i<this.CHILDREN.length;++i) { this.CHILDREN[i].setState(OrgNode.STATE_FOLDED); }
+        for(var i=0;i<this.CHILDREN.length;++i) {
+            this.CHILDREN[i].setState(OrgNode.STATE_FOLDED);
+            OrgNode.greyBackgroundElement(this.CHILDREN[i].DIV);
+        }
     }
   }
 };
