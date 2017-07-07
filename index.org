@@ -13,7 +13,7 @@
 * The Name of the Game
 
   org-info-js (subsequently called /the script/) implements part of Emacs Org-mode
-  in it's XHTML-exported files, allowing them to be rendered and browsed in a
+  in its XHTML-exported files, allowing them to be rendered and browsed in a
   linuxdoc/texinfo style.
 
   This documentation is one XHTML file, exported from one *.org file using a
@@ -38,8 +38,8 @@
 
 ** <<<Download>>>
 
-   - A list of Changes can be found [[file:changes.org][here]] (separat file).
-   - Download the [[file:org-info.js][minified version]] or the [[file:org-info-src.js][sourc code]].
+   - A list of changes can be found [[file:changes.org][here]] (separate file).
+   - Download the [[file:org-info.js][minified version]] or the [[file:org-info-src.js][source code]].
    - Create the minified versions from the sources using the [[file:Makefile][Makefile]] and a
      little [[file:sed.txt][sed script]].
 
@@ -47,7 +47,7 @@
    (http://github.com/SebastianRose/org-info-js/tree/master), but every working
    release is published here on Worg synchronously. That said, you can follow
    the development by tracking the Worg repo as well, available at
-   [[http://repo.or.cz/w/Worg.git]].
+   [[http://orgmode.org/w/worg.git]].
 
 ** Terms used throughout this Document
    :PROPERTIES:
@@ -66,12 +66,12 @@
    + *plain view mode* ::
      This mode displays the entire file. In this mode the sections are foldable
      by clicking the headlines or pressing '=f=' (fold). The entire structure
-     of the document my be (un-)folded using '=F='. You may determin what's
-     visible on pageload.
+     of the document may be (un-)folded using '=F='. You may determine what's
+     visible on page load.
 
    + *presentation mode* ::
-     This mode displays sections one by as slides. Still
-     very rustic and experimental. Rick Moynihan embarked and we plan a separat
+     This mode displays sections one by one as slides. Still
+     very rustic and experimental. Rick Moynihan embarked and we plan a separate
      tool for presentations, but...
 
    The table of contents (*TOC*) is required, albeit it may be hidden (CSS). The TOC may
@@ -159,7 +159,7 @@
      '=C=' shows a table of contents based on tags. Inherited tags are not
      supported yet. This was an [[http://lists.gnu.org/archive/html/emacs-orgmode/2008-07/msg00434.html][idea of Rick Moynihan]].
 
-** Miscelaneous
+** Miscellaneous
 
    + *Inter-linking* ::
      The exported pages can be linked to the homepage and an directory index or
@@ -196,7 +196,7 @@
   you a list of shortcuts.
 
   The script always tries to keep the last selected section visible. This is
-  somewhat strange when scrolling, but really helpfull for keyboard navigation.
+  somewhat strange when scrolling, but really helpful for keyboard navigation.
 
   The TOC is handled specially, when hidden. If you press '=i=', the TOC is
   displayed. Any subsequent key press goes back to where you've been before. The
@@ -206,7 +206,7 @@
   |-----------+---------------------------------------------------------|
   | ? / ¿     | show this help screen                                   |
   |-----------+---------------------------------------------------------|
-  |           | *Moving around*                                           |
+  |           | *Moving around*                                         |
   | n / p     | goto the next / previous section                        |
   | N / P     | goto the next / previous sibling                        |
   | t / E     | goto the first / last section                           |
@@ -216,21 +216,21 @@
   | b / B     | go back to last / forward to next visited section.      |
   | h / H     | go to main index in this directory / link HOME page     |
   |-----------+---------------------------------------------------------|
-  |           | *View*                                                    |
+  |           | *View*                                                  |
   | m / x     | toggle the view mode between info and plain / slides    |
   | f / F     | fold current section / whole document (plain view only) |
   |-----------+---------------------------------------------------------|
-  |           | *Searching*                                               |
+  |           | *Searching*                                             |
   | s / r     | search forward / backward....                           |
   | S / R     | search again forward / backward                         |
   | o         | occur-mode                                              |
   | c         | clear search-highlight                                  |
   |-----------+---------------------------------------------------------|
-  |           | *Misc*                                                    |
+  |           | *Misc*                                                  |
   | l / L / U | display HTML link / Org link / Plain-URL                |
   | v / V     | scroll down / up                                        |
 
-  Thanks Carsten, for this beautifull table!
+  Thanks Carsten, for this beautiful table!
 
 * Setup
   :PROPERTIES:
@@ -265,7 +265,7 @@
 
 #+BEGIN_SRC org
 ,#+INFOJS_OPT: path:org-info.js
-,#+INFOJS_OPT: toc:nil localtoc:t view:info mouse:underline buttons:nil
+,#+INFOJS_OPT: toc:nil ltoc:t view:info mouse:underline buttons:nil
 ,#+INFOJS_OPT: up:http://orgmode.org/worg/
 ,#+INFOJS_OPT: home:http://orgmode.org
 #+END_SRC
@@ -302,7 +302,7 @@
         + =Publishing/Export property= --- derivate this setting from another
           property like =org-export-with-toc=.
 
-      + =localtoc= ::
+      + =ltoc= ::
         Should the script insert a local table of contents below the headings
         of sections containing subsections? The default is no.\\
         Possible values:
@@ -749,9 +749,9 @@ org_html_manager.setup ();
   =org\_html\_manager=.
 
   The  =org\_html\_manager::setup()=  function,  that  you  will  have  to  call
-  yourself  (see examples in  [[#setup][Setup]]), sets  up a  timeout function  calling it's
+  yourself  (see examples in  [[#setup][Setup]]), sets  up a  timeout function  calling its
   =init()= function after  50ms. After those 50 ms  The =init()= function starts
-  it's first attempt  to scan the document, using the TOC  as a guide. During
+  its first attempt  to scan the document, using the TOC  as a guide. During
   this scan the  =org\_html\_manager= builds a tree of  nodes, each caching some
   data for later use. Once an element of the document is scanned it is marked by
   setting a property =scanned\_for\_org= to =1=. This way it will not be scanned
@@ -786,8 +786,8 @@ org_html_manager.setup ();
   If you're at the end of the presentation, a click does not trigger a
   warning. Same applies to a doubleclick when in the first section.
 
-  There is no plan to extend this feature very much. A better plan might be to
-  write a separate tool to handle slides.
+  There is no plan to extend this feature set very much. A better plan might
+  be to write a separate tool to handle slides.
 
 * History
 
@@ -796,11 +796,11 @@ org_html_manager.setup ();
 
   My first idea was to view some of my larger org files without scrolling. I
   wanted to have them paged just like texinfo or linuxdoc files. In February
-  2008 I came across Carsten Dominiks /ideas/ page
+  2008 I came across Carsten Dominik's /ideas/ page
   [[http://orgmode.org/todo.html]]. And I could not resist to write him some of my
   thoughts about this great emacs mode including some little ideas and
-  drawbacks. I don't know how, but it somehow these guys made me, lazy bone that
-  I am, write this little script as an apetizer of /web 3.0 in Org-mode/ (Phil
+  drawbacks. I don't know how, but somehow these guys made me, lazy bone that
+  I am, write this little script as an appetizer of /web 3.0 in Org-mode/ (Phil
   Jackson).
 
   I did and since some people really liked it, worked a bit more on it and added
@@ -816,13 +816,13 @@ org_html_manager.setup ();
 
   Very special thanks to Carsten Dominik, Bastien Guerry and Phil Jackson who
   have encouraged me to write and publish this little piece of (unfinished) work
-  and all the hundrets of hours they spent on this fantastic emacs mode called
+  and all the hundreds of hours they spent on this fantastic emacs mode called
   Org-mode and the export modules.
 
   Org is a new working experience for me and there is nothing comparable to
   working with emacs AND Org-mode.
 
-  An other big kiss to Gabi ([[http://www.emma-stil.de][www.emma-stil.de]]) for being so patient while I was
+  Another big kiss to Gabi ([[http://www.emma-stil.de][www.emma-stil.de]]) for being so patient while I was
   not working on our projects but playing with emacs.
 
   Thanks to Tobias Prinz for listening to my stupid JavaScript questions and all
@@ -855,7 +855,7 @@ org_html_manager.setup ();
   moving there and hitting =TAB=. The visibility of the entire document structure
   can be changed by pressing =SHIFT+TAB= anywhere. When on a headline, pressing
   =ALT+UP/DOWN= moves the entire subtree to different location in the tree,
-  keeping it's level of indentation. =ALT+LEFT/RIGHT= promotes and demotes the
+  keeping its level of indentation. =ALT+LEFT/RIGHT= promotes and demotes the
   subtree.
 
   [[file:img/emacs23-org.js.org.png]]

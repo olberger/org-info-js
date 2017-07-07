@@ -259,7 +259,7 @@ OrgNode.prototype.setLinkClass = function (on)
 
 /**
  * This one is called onclick() to toggle the folding state of the node.
- * This one sets it's parent dirty, since node is folded individually. Hence the
+ * This one sets its parent dirty, since node is folded individually. Hence the
  * next folding of parent has to collapse all.
  * @param show_childrens_folders Boolean. This is only used for the special way
  * of toggling of the ROOT element. If true, prevents this OrgNode from showing
@@ -522,6 +522,14 @@ var org_html_manager = {
       } else { // be backward compatible
         t.BODY = document.getElementsByTagName("body")[0];
       }}
+    t.PREA = document.getElementById("preamble");
+    t.POST = document.getElementById("postamble");
+    if(null == t.PREA) {
+	t.PREA = t.BODY;
+    }
+    if(null == t.POST) {
+	t.POST = t.BODY;
+    }
     if(! t.WINDOW) {
       t.WINDOW = document.createElement("div");
       t.WINDOW.style.marginBottom = "40px";
@@ -738,7 +746,7 @@ var org_html_manager = {
 
     // Move the title into the first visible section.
     // TODO: show title above everything if FIXED_TOC !!!
-    t.TITLE = t.BODY.getElementsByTagName("h1")[0];
+    t.TITLE = document.getElementsByClassName("title")[0];
     if(t.INNER_TITLE && !t.FIXED_TOC && t.VIEW != t.SLIDE_VIEW) {
       t.INNER_TITLE = t.TITLE.cloneNode(true);
       /* TODO: this is still based on wrong behaviour of browsers (same id for two elements)
